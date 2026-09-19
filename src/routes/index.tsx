@@ -138,6 +138,8 @@ function Index() {
     );
   };
 
+  const activeImage = lightboxIndex === null ? null : galleryImages.at(lightboxIndex) ?? null;
+
   return (
     <main id="home" className="overflow-hidden bg-background text-foreground">
       <header className="absolute inset-x-0 top-0 z-40 border-b border-hero-foreground/20">
@@ -379,11 +381,11 @@ function Index() {
 
       <a href={whatsappUrl} target="_blank" rel="noreferrer" className="floating-whatsapp" aria-label="Book Negi Cottage on WhatsApp"><WhatsAppIcon className="h-6 w-6" /><span className="hidden sm:inline">Book your stay</span></a>
 
-      {lightboxIndex !== null && (
+      {lightboxIndex !== null && activeImage && (
         <div className="lightbox fixed inset-0 z-50 grid place-items-center p-4" role="dialog" aria-modal="true" aria-label="Photo gallery">
           <button type="button" onClick={() => setLightboxIndex(null)} className="absolute right-5 top-5 z-10 grid h-12 w-12 place-items-center rounded-full border border-hero-foreground/30 text-hero-foreground" aria-label="Close gallery"><X /></button>
           <button type="button" onClick={() => moveLightbox(-1)} className="absolute left-3 z-10 grid h-12 w-12 place-items-center rounded-full bg-hero-foreground/10 text-hero-foreground sm:left-7" aria-label="Previous image"><ChevronLeft /></button>
-          <img src={galleryImages[lightboxIndex].src} alt={galleryImages[lightboxIndex].alt} className="max-h-[88vh] max-w-[92vw] object-contain" />
+          <img src={activeImage.src} alt={activeImage.alt} className="max-h-[88vh] max-w-[92vw] object-contain" />
           <button type="button" onClick={() => moveLightbox(1)} className="absolute right-3 z-10 grid h-12 w-12 place-items-center rounded-full bg-hero-foreground/10 text-hero-foreground sm:right-7" aria-label="Next image"><ChevronRight /></button>
           <span className="absolute bottom-5 text-xs tracking-[0.2em] text-hero-foreground/70">{lightboxIndex + 1} / {galleryImages.length}</span>
         </div>
