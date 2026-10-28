@@ -11,6 +11,9 @@ import familyRoom from "@/assets/negi-cottage-family-room.png";
 import orchard from "@/assets/negi-cottage-orchard.png";
 import roomView from "@/assets/negi-cottage-room-view.png";
 import room from "@/assets/negi-cottage-room.png";
+import sunrise from "@/assets/negi-retreat-sunrise.jpg";
+import pineTrail from "@/assets/negi-retreat-pine-trail.jpg";
+import eveningLights from "@/assets/negi-retreat-evening-lights.jpg";
 
 const photos = [
   [mountain, "Kinner Kailash views"],
@@ -22,6 +25,9 @@ const photos = [
   [dining, "Warm Himachali dining"],
   [entrance, "A warm welcome"],
   [room, "Comfortable mountain rest"],
+  [sunrise, "Sunrise over the valley"],
+  [pineTrail, "Quiet pine trail"],
+  [eveningLights, "Cottage lights at blue hour"],
 ] as const;
 
 export const Route = createFileRoute("/gallery")({

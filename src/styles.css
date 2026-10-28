@@ -202,17 +202,19 @@
 }
 .hero-slide-active {
   opacity: 1;
-  transform: scale(1.02);
+  transform: scale(1.035);
   z-index: 0;
-  animation: hero-slide-in 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: hero-slide-in 1400ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  will-change: opacity, transform;
 }
 .hero-slide-hidden {
   opacity: 0;
-  transform: scale(1.06);
+  transform: scale(1.08);
   z-index: -1;
   transition:
-    opacity 900ms ease,
-    transform 1200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    opacity 1200ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 1600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
 }
 .hero-dot {
   height: 0.35rem;
@@ -233,11 +235,11 @@
 @keyframes hero-slide-in {
   from {
     opacity: 0;
-    transform: scale(1.08);
+    transform: scale(1.09);
   }
   to {
     opacity: 1;
-    transform: scale(1.02);
+    transform: scale(1.035);
   }
 }
 .image-scrim {
@@ -486,20 +488,21 @@
     grid-column: span 4;
     grid-row: span 5;
   }
+  .gallery-item-10 {
+    grid-column: span 5;
+    grid-row: span 5;
+  }
+  .gallery-item-11 {
+    grid-column: span 3;
+    grid-row: span 4;
+  }
+  .gallery-item-12 {
+    grid-column: span 4;
+    grid-row: span 5;
+  }
 }
 
 @media (min-width: 1024px) {
-  .hero-image {
-    animation: hero-scale 14s ease-out both;
-  }
-  @keyframes hero-scale {
-    from {
-      transform: scale(1.08);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
   .parallax-image {
     transform: translateY(-4%);
   }
