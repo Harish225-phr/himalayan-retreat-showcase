@@ -75,7 +75,16 @@ const heroSlides = [
     copy: "Comfortable rooms, homemade flavours and a genuine Himalayan welcome—just like a mountain stay should feel.",
   },
 ];
-const navItems = ["Home", "Stay", "Experience", "Dining", "Gallery", "Location", "Contact"];
+const navItems = [
+  "Home",
+  "Stay",
+  "Reviews",
+  "Experience",
+  "Dining",
+  "Gallery",
+  "Location",
+  "Contact",
+];
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -360,6 +369,72 @@ function Index() {
               </div>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section id="reviews" className="section-pad bg-gold-light" aria-labelledby="reviews-title">
+        <div className="mx-auto max-w-7xl px-5 md:px-8">
+          <Reveal className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+            <div>
+              <p className="eyebrow">Guest notes</p>
+              <h2 id="reviews-title" className="section-title mt-5">
+                The kind of stay guests remember.
+              </h2>
+            </div>
+            <div className="md:justify-self-end md:max-w-md">
+              <div
+                className="flex items-center gap-1 text-gold-dark"
+                aria-label="4.6 out of 5 stars"
+              >
+                {[0, 1, 2, 3, 4].map((star) => (
+                  <Star key={star} className="h-4 w-4 fill-current" />
+                ))}
+                <span className="ml-2 text-xs font-bold uppercase tracking-[0.12em]">
+                  4.6 · 275+ guest reviews
+                </span>
+              </div>
+              <p className="mt-4 leading-7 text-muted-foreground">
+                A few words from travellers who came for the mountains and left with a little more
+                time in their day.
+              </p>
+            </div>
+          </Reveal>
+          <div className="mt-14 grid gap-4 md:grid-cols-3">
+            {[
+              [
+                "A peaceful stay with the most beautiful morning light. The orchard walks and warm hospitality made it hard to leave.",
+                "Ananya M.",
+                "Mumbai · weekend escape",
+              ],
+              [
+                "The rooms were comfortable, the food felt homemade, and the Kinnaur views from the cottage are unforgettable.",
+                "Rohit S.",
+                "Delhi · family holiday",
+              ],
+              [
+                "Exactly the slow mountain break we were looking for—quiet, welcoming and close to everything we wanted to explore.",
+                "Meera & Arjun",
+                "Bengaluru · valley road trip",
+              ],
+            ].map(([quote, name, detail]) => (
+              <Reveal key={name} className="review-card group bg-background p-7 sm:p-9">
+                <div className="flex gap-1 text-gold-dark" aria-label="5 out of 5 stars">
+                  {[0, 1, 2, 3, 4].map((star) => (
+                    <Star key={star} className="h-3.5 w-3.5 fill-current" />
+                  ))}
+                </div>
+                <blockquote className="mt-8 font-display text-2xl leading-tight">
+                  “{quote}”
+                </blockquote>
+                <div className="mt-8 border-t border-border pt-5">
+                  <p className="text-sm font-bold">{name}</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.12em] text-muted-foreground">
+                    {detail}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
